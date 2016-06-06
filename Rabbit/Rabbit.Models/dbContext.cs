@@ -9,25 +9,16 @@ namespace Rabbit.Models
 {
     public class dbContext
     {
-        private MongoDatabase database { get; set; }
+        private IMongoDatabase Database { get; set; }
 
         public dbContext()
         {
             var conn = "mongo://localhost";
             var client = new MongoClient(conn);
-#pragma warning disable CS0618 // Type or member is obsolete
-            var server = client.GetServer();
-#pragma warning restore CS0618 // Type or member is obsolete
-            database = server.GetDatabase("Rabbit");
+            Database = client.GetDatabase("Rabit"); 
         }
 
-        public MongoDatabase db
-        {
-            get
-            {
-                return database;
-            }
-        }
+        public IMongoCollection<Rabbit> Rabbit => Database.GetCollection<Rabbit>("rabbits");
     }
 
 }

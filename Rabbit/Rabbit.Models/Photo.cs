@@ -14,18 +14,4 @@ namespace Rabbit.Models
         public virtual Gallery Gallery { get; set; }
     }
 
-    //public class PhotoConfig : EntityTypeConfiguration<Photo>
-    //{
-    //    public PhotoConfig()
-    //    {
-    //        HasKey(x => x.PhotoId);
-
-    //        Property(x => x.PhotoId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-    //        Property(x => x.FileName).IsRequired().HasMaxLength(250).HasColumnName("FirstName");
-    //        Property(x => x.Description).IsOptional().HasMaxLength(250).HasColumnName("Description");
-    //        Property(x => x.PublishedTime).IsRequired().HasColumnType("datetime2");
-    //        HasRequired(x => x.Gallery).WithMany(x => x.Photos).HasForeignKey(x => x.GalleryId);
-    //        ToTable("Photo");
-    //    }
-    //}
 }
