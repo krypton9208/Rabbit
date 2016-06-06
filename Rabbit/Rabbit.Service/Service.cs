@@ -17,7 +17,8 @@ namespace Rabbit.Service
         {
             get
             {
-                return db.GetCollection<T>("ddas").FindAll().ToBsonDocument().ToListAsync().Result;
+                return null;
+                //return db.GetCollection<T>("ddas").FindAll().ToBsonDocument();
             }
         }
 

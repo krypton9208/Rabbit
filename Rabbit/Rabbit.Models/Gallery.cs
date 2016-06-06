@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,18 +22,18 @@ namespace Rabbit.Models
             Photos = new HashSet<Photo>();
         }
     }
-    public class GalleryConfig : EntityTypeConfiguration<Gallery>
-    {
-        public GalleryConfig()
-        {
-            HasKey(x => x.GalleryId);
+    //public class GalleryConfig : EntityTypeConfiguration<Gallery>
+    //{
+    //    public GalleryConfig()
+    //    {
+    //        HasKey(x => x.GalleryId);
 
-            Property(x => x.GalleryId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.GalleryName).IsRequired().HasMaxLength(200).HasColumnName("Name");
+    //        Property(x => x.GalleryId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+    //        Property(x => x.GalleryName).IsRequired().HasMaxLength(200).HasColumnName("Name");
 
-            HasRequired(x => x.Rabbit).WithMany(x => x.Galleries).HasForeignKey(x => x.RabbitId);
+    //        HasRequired(x => x.Rabbit).WithMany(x => x.Galleries).HasForeignKey(x => x.RabbitId);
 
-            ToTable("Gallery");
-        }
-    }
+    //        ToTable("Gallery");
+    //    }
+    //}
 }
