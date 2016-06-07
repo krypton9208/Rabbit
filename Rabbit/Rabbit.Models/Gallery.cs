@@ -15,7 +15,7 @@ namespace Rabbit.Models
 
         public virtual ICollection<Photo> Photos { get; set; }
 
-        public virtual Rabbit Rabbit { get; set; }
+        public virtual Rabb Rabbit { get; set; }
 
         public Gallery()
         {

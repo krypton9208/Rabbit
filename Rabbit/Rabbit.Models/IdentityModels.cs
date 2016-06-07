@@ -17,11 +17,11 @@ namespace Rabbit.Models
 
         public string Description { get; set; }
 
-        public virtual ICollection<Rabbit> Rabbits { get; set; }
+        public virtual ICollection<Rabb> Rabbits { get; set; }
 
         public User()
         {
-            Rabbits = new HashSet<Rabbit>();
+            Rabbits = new HashSet<Rabb>();
         }
     }
 

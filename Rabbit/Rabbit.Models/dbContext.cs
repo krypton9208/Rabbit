@@ -13,12 +13,19 @@ namespace Rabbit.Models
 
         public dbContext()
         {
-            var conn = "mongo://localhost";
+            var conn = "mongodb://localhost:27017";
             var client = new MongoClient(conn);
-            Database = client.GetDatabase("Rabit"); 
+            Database = client.GetDatabase("Rabbit"); 
         }
 
-        public IMongoCollection<Rabbit> Rabbit => Database.GetCollection<Rabbit>("rabbits");
+        public IMongoDatabase GetDb
+        {
+            get
+            {
+                return Database;
+            }
+        }
+        public IMongoCollection<Rabb> Rabbit => Database.GetCollection<Rabb>("rabbits");
     }
 
 }
