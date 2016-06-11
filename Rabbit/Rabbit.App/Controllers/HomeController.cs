@@ -21,7 +21,8 @@ namespace Rabbit.App.Controllers
         {
             return db.GetAll;
         }
-        [Route("GetRabbitByName/{name:string}")]
+        [Route("GetRabbitByName/{name}")]
+        [HttpGet]
         public IHttpActionResult GetRabbitByName(string name)
         {
             var rabb = db.GetByName(name);

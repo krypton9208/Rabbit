@@ -13,8 +13,8 @@ namespace Rabbit.Service
     {
         private readonly IMongoCollection<Rabb> db;
 
-
         public IMongoCollection<Rabb> GetCollection => db;
+
         public RabbitService()
         {
             db = new dbContext().Rabbit;
@@ -70,7 +70,7 @@ namespace Rabbit.Service
 
         public Rabb GetByName(string t)
         {
-            return db.Find(x => x.Name == t).FirstOrDefault();
+            return db.Find(x => x.Name.ToLower().Contains(t.ToLower())).First();
         }
         public Rabb GetById(string t)
         {
