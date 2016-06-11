@@ -2,65 +2,99 @@
 <html ng-app="myApp" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Rabbit</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body ng-controller="RabbitDataController">
-    <div ng-repeat="rabb in rabbits">
-        @*<div>
-                <h2>All Rabbits</h2>
-                <ul id="products" />
-            </div>
-            <div>
-                <h2>Search by Name</h2>
-                <input type="text" id="prodName" size="10" />
-                <input type="button" value="Search" onclick="find();" />
-                <p id="product" />
-            </div>*@
+    <div class="navbar navbar-fixed-top row  ">
+        <div class="container">
 
-        <div class="btn-group btn-group-justified">
-            <span>{{rabb.Name}}</span>
         </div>
 
+    </div>
+    <div class="container body-content">
+        
+        @* div with left menu  *@
+        <div class="col-lg-3">
+
+        </div>
+        @* div with rabbits *@
+        <div class="col-lg-6">
+            <div ng-repeat="item in data">
+                <div class="post">
+                    <span>{{item.Name}} - {{item.Nicknames}}</span>
+                </div>
+                <br />
+            </div>
+        </div>
+        @* div for right menu positions *@
+        <div class="col-lg-3 ">
+
+        </div>
     </div>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script src="~/scripts/angular.js"></script>
     <script>
-        var uri = '/api/home/GetAllRabbit';
-        (function () {
-            angular.module('myApp', []).controller('RabbitDataController', function ($scope, $http) {
-                $http.get('/api/home/GetAllRabbit').success(function (data) {
-                    $scope.rabbits = data;
-                })
-            })
-        });
 
-        $(document).ready(function () {
-            // Send an AJAX request
-            $.getJSON(uri)
-                .done(function (data) {
-                    // On success, 'data' contains a list of products.
-                    $.each(data, function (key, item) {
-                        // Add a list item for the product.
-                        $('<li>', { text: formatItem(item) }).appendTo($('#products'));
-                    });
+        var app = angular.module('myApp', []);
+
+        app.service('RabbitSe', function ($http) {
+            this.GetAllRabit = function () {
+                var resp = $http.get("/api/GetAllRabbit");
+                return resp;
+            };
+        });
+        app.controller('RabbitDataController', function ($scope, RabbitSe) {
+
+            loadData();
+
+            function loadData() {
+                //The controller call the function from the service
+                var promiseGetData = RabbitSe.GetAllRabit();
+                //Callback with success and failure
+                promiseGetData.then(function (res) {
+                    $scope.data = res.data;
                 });
+            }
         });
 
-        function formatItem(item) {
-            return item.Name + ' - ' + item.Nicknames + ' - ' + item.BirthDay.substring(0, 10);
-        }
+
+        //app.controller('', function ($scope, $http) {
+        //    $http.get('../../api/home/GetAllRabbit', null).then(function (data) {
+        //        $scope.rabbits = data;
+        //    })
+        //})
 
 
-        function find() {
-            var name = $('#prodName').val();
-            var uri2 = '../../api/home/GetRabbitByName';
-            $.getJSON(uri2 + '/' + name)
-              .done(function (data) {
-                  $('#product').text(formatItem(data));
-              })
-              .fail(function (jqXHR, textStatus, err) {
-                  $('#product').text('Error: ' + err);
-              });
-        }
+        //$(document).ready(function () {
+        //    // Send an AJAX request
+        //    $.getJSON(uri)
+        //        .done(function (data) {
+        //            // On success, 'data' contains a list of products.
+        //            $.each(data, function (key, item) {
+        //                // Add a list item for the product.
+        //                $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+        //            });
+        //        });
+        //});
+
+        //function formatItem(item) {
+        //    return item.Name + ' - ' + item.Nicknames + ' - ' + item.BirthDay.substring(0, 10);
+        //}
+
+
+        //function find() {
+        //    var name = $('#prodName').val();
+        //    var uri2 = '../../api/home/GetRabbitByName';
+        //    $.getJSON(uri2 + '/' + name)
+        //      .done(function (data) {
+        //          $('#product').text(formatItem(data));
+        //      })
+        //      .fail(function (jqXHR, textStatus, err) {
+        //          $('#product').text('Error: ' + err);
+        //      });
+        //}
     </script>
 </body>
 </html>

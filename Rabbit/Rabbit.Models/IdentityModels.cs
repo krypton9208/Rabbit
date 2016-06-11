@@ -5,12 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
-
-
+using AspNet.Identity.MongoDB;
 
 namespace Rabbit.Models
 {
-    public class User /*: IdentityUser*/
+    public class User : IdentityUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -24,6 +23,12 @@ namespace Rabbit.Models
             Rabbits = new HashSet<Rabb>();
         }
     }
+
+    public class Role : IdentityRole
+    {
+
+    }
+
 
     //public class UserConfig : EntityTypeConfiguration<User>
     //{

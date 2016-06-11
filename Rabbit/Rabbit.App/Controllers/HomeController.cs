@@ -6,20 +6,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Rabbit.App.Controllers
 {
-    [RoutePrefix("api/home")]
+    [RoutePrefix("api")]
     public class HomeController : ApiController
     {
         private RabbitService db = new RabbitService();
 
         [HttpGet]
         [Route("GetAllRabbit")]
-        public IEnumerable<Rabb> GetAllRabbit()
+        public async Task<List<Rabb>> GetAllRabbit()
         {
-            return db.GetAll;
+            return await db.GetAll();
         }
         [Route("GetRabbitByName/{name}")]
         [HttpGet]

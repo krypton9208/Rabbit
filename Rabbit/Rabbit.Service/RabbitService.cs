@@ -38,12 +38,9 @@ namespace Rabbit.Service
             //});
         }
 
-        public IEnumerable<Rabb> GetAll
+        public async Task<List<Rabb>> GetAll()
         {
-            get
-            {
-                return db.AsQueryable().ToList<Rabb>();
-            }
+            return await db.Find(new BsonDocument()).ToListAsync();
         }
 
 
@@ -55,7 +52,7 @@ namespace Rabbit.Service
 
         private string ReturnId(Rabb t)
         {
-           return  db.Find(x => x == t).FirstOrDefault().id;
+            return db.Find(x => x == t).FirstOrDefault().id;
         }
 
         public bool Delete(Rabb t)

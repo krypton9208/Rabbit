@@ -9,7 +9,7 @@ namespace Rabbit.Service
 {
     public interface IRabbitService
     {
-        IEnumerable<Rabb> GetAll { get; }
+        Task<List<Rabb>> GetAll();
         void Add(Rabb t);
         bool Update(Rabb t);
         bool Delete(Rabb t);
