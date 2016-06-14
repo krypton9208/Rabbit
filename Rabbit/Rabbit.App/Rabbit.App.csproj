@@ -981,6 +981,7 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="scripts\version.json" />
     <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Default\AddPhoto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

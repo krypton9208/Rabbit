@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
@@ -25,18 +21,4 @@ namespace Rabbit.Models
             Photos = new HashSet<Photo>();
         }
     }
-    //public class GalleryConfig : EntityTypeConfiguration<Gallery>
-    //{
-    //    public GalleryConfig()
-    //    {
-    //        HasKey(x => x.GalleryId);
-
-    //        Property(x => x.GalleryId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-    //        Property(x => x.GalleryName).IsRequired().HasMaxLength(200).HasColumnName("Name");
-
-    //        HasRequired(x => x.Rabbit).WithMany(x => x.Galleries).HasForeignKey(x => x.RabbitId);
-
-    //        ToTable("Gallery");
-    //    }
-    //}
 }

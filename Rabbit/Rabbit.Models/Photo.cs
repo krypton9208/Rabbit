@@ -12,7 +12,6 @@ namespace Rabbit.Models
         public string FileName { get; set; }
         public string Description { get; set; }
         public DateTime PublishedTime { get; set; }
-
         public Guid GalleryId { get; set; }
         public virtual Gallery Gallery { get; set; }
     }
