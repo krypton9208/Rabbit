@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rabbit</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+
+<body>
+    <div ng-app="RabbitApp">
+        <div ng-controller="RabbitCtrl as vm">
+
+            <div class="navbar navbar-fixed-top row  ">
+                <div class="container">
+                    <button class="btn">WELCOME</button>
+                </div>
+            </div>
+            <div class="container body-content">
+
+                @* div with left menu  *@
+                <div class="col-lg-3">
+
+                </div>
+                @* div with rabbits *@
+                <div class="col-lg-6">
+                    <div class="col-lg-offset-1" style="padding: 5px 15px 20px 5px;">
+                        <button class="btn btn-success btn-lg row" style="width: 100%; background-color: deepskyblue"> Add new photos ! :D</button>
+                    </div>
+                    <div ng-repeat="item in vm.rabbits">
+                        <div class="post">
+                            <span>{{item.Name}} - {{item.Nicknames}}</span>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                @* div for right menu positions *@
+                <div class="col-lg-3 Login-border">
+                    <div class="col-sm-offset-1 col-lg-10 form-control-static">
+                        <div class="row">
+                            <span>login:</span>
+                        </div>
+                        <div class="row">
+                            <input class="input-sm form-control" id="login" />
+                        </div>
+                        <div class="row">
+                            <span>password:</span>
+                        </div>
+                        <div class="row">
+                            <input type="password" class="input-sm form-control" id="password" />
+                        </div>
+                        <div class="row">
+                            <br /><button type="submit" class="btn form-control-static col-sm-offset-3">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/scripts/jquery-2.2.3.js"></script>
+    <script src="~/scripts/angular.js"></script>
+    <script src="~/scripts/angular-route.js"></script>
+    <script src="~/scripts/angular-animate.js"></script>
+
+    <script src="~/Area/app/app.module.js"></script>
+    <script src="~/Area/app/Rabbits/rabbits.controller.js"></script>
+    <script src="~/Area/app/Rabbits/rabbits.service.js"></script>
+    @*<script>
+            var app = angular.module('RabbitApp', []);
+            app.service('RabbitSe', function ($http) {
+                this.GetAllRabit = function () {
+                    var resp = $http.get("/api/GetAllRabbit");
+                    return resp;
+                };
+            });
+            app.controller('RabbitDataController', function ($scope, RabbitSe) {
+
+                loadData();
+
+                function loadData() {
+                    //The controller call the function from the service
+                    var promiseGetData = RabbitSe.GetAllRabit();
+                    //Callback with success and failure
+                    promiseGetData.then(function (res) {
+                        $scope.data = res.data;
+                    });
+                }
+            });
+        </script>*@
+</body>
+</html>

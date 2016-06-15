@@ -167,6 +167,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Area\app\app.module.js" />
+    <Content Include="Area\app\Rabbits\rabbits.controller.js" />
+    <Content Include="Area\app\Rabbits\rabbits.service.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -981,8 +984,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Rabbit\Index.cshtml" />
     <Content Include="scripts\version.json" />
-    <Content Include="Views\Default\Index.cshtml" />
-    <Content Include="Views\Default\AddPhoto.cshtml" />
+    <Content Include="Area\app\Rabbits\Index.cshtml" />
+    <Content Include="Area\app\Galleries\AddPhoto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1006,6 +1009,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Rabbit.Models\Rabbit.Models.csproj">
