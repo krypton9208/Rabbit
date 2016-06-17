@@ -1028,6 +1028,7 @@
     <TypeScriptCompile Include="Area\app\app.module.ts" />
     <TypeScriptCompile Include="Area\app\Galleries\galleries.controller.ts" />
     <TypeScriptCompile Include="Area\app\Galleries\galleries.service.ts" />
+    <TypeScriptCompile Include="Area\app\Rabbits\rabbits.controller.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

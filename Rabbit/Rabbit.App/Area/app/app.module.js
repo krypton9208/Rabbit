@@ -1,2 +1,6 @@
-var appModule = angular.module("RabbitApp", []);
-appModule.controller("GalleriesCtrl", ["$scope", function ($scope) { return new Application.Controllers.GalleriesCtrl($scope); }]);
+var app;
+(function (app) {
+    'use strict';
+    angular.module('app', []);
+})(app || (app = {}));
+//# sourceMappingURL=app.module.js.map
