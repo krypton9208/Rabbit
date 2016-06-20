@@ -2,17 +2,19 @@ var app;
 (function (app) {
     'use strict';
     var GalleriesController = (function () {
-        function GalleriesController(getMyGalleries, info) {
-            this.getMyGalleries = getMyGalleries;
-            this.siema = info;
+        function GalleriesController(getall) {
+            var vm = this;
+            getall.GetAllGalleries().
+                then(function (result) {
+                vm.Galleries = result.data;
+            });
         }
-        GalleriesController.prototype.GetInfo = function () {
-            return this.siema;
-        };
-        GalleriesController.$inject = ["GalleriesService"];
+        ;
+        GalleriesController.IID = 'GalleriesController';
+        GalleriesController.$inject = [app.GalleriesService.IID];
         return GalleriesController;
     }());
     angular.module('app')
-        .controller('GalleriesController', GalleriesController);
+        .controller(GalleriesController.IID, GalleriesController);
 })(app || (app = {}));
 //# sourceMappingURL=galleries.controller.js.map

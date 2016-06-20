@@ -8,7 +8,7 @@ namespace Rabbit.Models
     public class Gallery
     {
         [BsonRepresentation(BsonType.ObjectId)]
-        public Guid GalleryId { get; set; }
+        public string id { get; set; }
         public string GalleryName { get; set; }
         public Guid RabbitId { get; set; }
 

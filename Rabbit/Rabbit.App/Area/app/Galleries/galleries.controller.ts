@@ -1,19 +1,23 @@
-﻿namespace app {
+﻿
+namespace app {
     'use strict';
     class GalleriesController {
-        static IID = 'GalleriesController';
+        public static IID = 'GalleriesController';
         static $inject = [GalleriesService.IID];
-        public siema: string;
+        public Galleries: any;
+        constructor(getall: GalleriesService)
+        {
+            let vm = this;
+                getall.GetAllGalleries().
+                    then((result: {
+                        data: any;
+                    }) => {
+                        vm.Galleries = result.data;
+                    });
+        };
 
-        constructor(service: GalleriesService, info: string) {
-            this.siema = info;
-        }
-        
-        public GetInfo() {
-            return this.siema;
-            this.GalleriesService.ge
-        }
+
     }
     angular.module('app')
-        .controller('GalleriesController', GalleriesController);
+        .controller(GalleriesController.IID, GalleriesController);
 }

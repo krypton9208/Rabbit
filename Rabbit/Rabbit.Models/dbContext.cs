@@ -19,7 +19,6 @@ namespace Rabbit.Models
             var client = new MongoClient(conn);
             Database = client.GetDatabase("Rabbit");
             var users = Database.GetCollection<User>("users");
-
             var store = new UserStore<User>(users);
             var manager = new UserManager<User>(store);
 

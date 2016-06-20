@@ -2,28 +2,16 @@
 namespace app {
     'use strict';
 
-    class GalleriesService {
+    export class GalleriesService {
         static IID = 'GalleriesService';
         static $inject = ['$http'];
+        constructor(public $http: angular.IHttpService) {};
 
-        private info: string = 'Working';
-        public name: string = 'Damian';
-
-        constructor(public $http: angular.IHttpService) { };
-
-
-        public GetInfo(): string {
-            return this.info;
-        };
-
-        public getMyGalleries(myId: string): angular.IPromise<any> {
-            return this.$http({
-                method: 'get',
-                url: `api/MyGalleries/${myId}`
-            }).then((result: { data: any }) => result.data);
+        public GetAllGalleries(): any {
+            return this.$http
+                .get('/api/GetAllGalleries/');
         }
-
     }
     angular.module('app')
-        .service('GalleriesService', GalleriesService);
+        .service(GalleriesService.IID, GalleriesService);
 }
