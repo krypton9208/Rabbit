@@ -6,6 +6,7 @@ var app;
             var vm = this;
             getall.GetAllGalleries().
                 then(function (result) {
+                //das
                 vm.Galleries = result.data;
             });
         }

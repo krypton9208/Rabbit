@@ -12,6 +12,7 @@ namespace app {
                     then((result: {
                         data: any;
                     }) => {
+                    //das
                         vm.Galleries = result.data;
                     });
         };
