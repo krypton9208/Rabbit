@@ -1,22 +1,25 @@
 ﻿
-namespace app {
+namespace app.Galleries {
     'use strict';
+
     class GalleriesController {
         public static IID = 'GalleriesController';
-        static $inject = [GalleriesService.IID];
+        static $inject = [app.Galleries.GalleriesService.IID];
         public Galleries: any;
-        constructor(getall: GalleriesService)
+        constructor(public service: app.Galleries.GalleriesService)
         {
             let vm = this;
-                getall.GetAllGalleries().
+                service.GetAllGalleries().
                     then((result: {
                         data: any;
                     }) => {
-                    //das
                         vm.Galleries = result.data;
                     });
         };
 
+        public CreateGallery(post: INewPost){
+            this.service.SaveNewGallery(post);
+        }
 
     }
     angular.module('app')

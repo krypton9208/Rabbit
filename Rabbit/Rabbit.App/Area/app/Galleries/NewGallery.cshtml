@@ -7,8 +7,8 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body >
-    <div ng-app="RabbitApp">
-        <div ng-controller="RabbitCtrl">
+    <div ng-app="app">
+        <div ng-controller="GalleriesController as vm">
             <div class="navbar navbar-fixed-top row  ">
                 <div class="container">
                     <button class="btn">WELCOME</button>
@@ -21,17 +21,17 @@
                     <div class="form-group-">
                         <label for="Name" class="col-sm-2 control-label">Gallery Name:</label>
                         <div class="col-sm-10">
-                            <input class="form-control" id="Name" type="text" placeholder="Podaj nazwę galerii." />
+                            <input class="form-control" ng-model="post.name" id="post.name" type="text" placeholder="Podaj nazwę galerii." />
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label for="Description" class="col-sm-2 control-label ">Description:</label>
                         <div class="col-sm-10 ">
-                            <textarea class="form-control " id="Description" placeholder="Wpisz opis tej galeri." style="height: 150px;"></textarea>
+                            <textarea class="form-control " ng-model="post.description"  id="Description" placeholder="Wpisz opis tej galeri." style="height: 150px;"></textarea>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group">
-
+                        <input type="submit" ng-click="vm.CreateGallery(post)" value="Save" />
                     </div>
                     <div class="row">
 
@@ -44,11 +44,11 @@
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="~/scripts/angular.js"></script>
     <script src="~/scripts/angular-route.js"></script>
-    <script src="~/scripts/angular-animate.js"></script>
+    <script src="../../../../../../scripts/angular-animate.js"></script>
 
     <script src="~/Area/app/app.module.js"></script>
-    <script src="~/Area/app/Galleries/"></script>
-    <script src="~/Area/app/Galleries/"></script>
+    <script src="~/Area/app/Galleries/galleries.service.js"></script>
+    <script src="~/Area/app/Galleries/galleries.controller.js"></script>
 
     
 </body>
